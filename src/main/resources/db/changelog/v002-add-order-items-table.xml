@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.25.xsd">
+
+  <changeSet id="002-add-order-items-table" author="Tonibit">
+    <preConditions onFail="MARK_RAN">
+      <not><tableExists tableName="order_items"/></not>
+    </preConditions>
+    <createTable tableName="order_items">
+      <column name="id" type="UUID">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="name" type="VARCHAR(255)"/>
+      <column name="price" type="DECIMAL(10,2)"/>
+      <column name="quantity" type="INTEGER"/>
+      <column name="order_id" type="UUID">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <addForeignKeyConstraint constraintName="fk_order_items_order"
+      baseTableName="order_items" baseColumnNames="order_id"
+      referencedTableName="orders" referencedColumnNames="id"/>
+  </changeSet>
+</databaseChangeLog>
