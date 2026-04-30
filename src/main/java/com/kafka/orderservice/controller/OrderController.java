@@ -45,6 +45,6 @@ public class OrderController {
 
   @GetMapping("/health")
   public String health() {
-    return "Order Service v2.0 - CI/CD Test!";
+    return "Order Service v2.1 - CI/CD - check again";
   }
 }
