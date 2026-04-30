@@ -42,4 +42,9 @@ public class OrderController {
     orderService.deleteOrderById(id);
     return (ResponseEntity) ResponseEntity.ok();
   }
+
+  @GetMapping("/health")
+  public String health() {
+    return "Order Service v2.0 - CI/CD Test!";
+  }
 }
