@@ -41,4 +41,5 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ env.REGISTRY_OWNER }}/${{ github.event.repository.name }}:${{ github.sha }}
+            ghcr.io/${{ env.REGISTRY_OWNER }}/${{ github.event.repository.name }}:main
             ghcr.io/${{ env.REGISTRY_OWNER }}/${{ github.event.repository.name }}:latest
